@@ -1,5 +1,6 @@
 import React, { useReducer, useState } from 'react';
 import reducer from './reducer'
+import { Link } from 'react-router-dom'
 
 const Counter = () => {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
@@ -18,7 +19,7 @@ const Counter = () => {
   return (
     <>
       <section style={{ margin: '4rem 0' }}>
-        <h2>regular counter</h2>
+        <h2>regular counter (useReducer Hook)</h2>
         <h1>{state.count}</h1>
         <button className='btn' onClick={(e) => dispatch({ type: "DECREASE", payload: e.target.value })}>
           decrease
@@ -30,6 +31,9 @@ const Counter = () => {
           increase
         </button>
         <button className='btn' onClick={handleSelfIncrease}>{intervalId ? 'Stop' : 'Self Increase'}</button>
+      </section>
+      <section>
+        <button className='btn'><Link to='/'>Go To Menu</Link></button>
       </section>
     </>
   );
